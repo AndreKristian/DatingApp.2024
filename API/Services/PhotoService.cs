@@ -26,9 +26,15 @@ namespace API.Services
             if (file.Length > 0)
             {
                 using var stream = file.OpenReadStream();
+
+                //test for base64 conversion
+                // byte[] bt = new byte[stream.Length];
+                // stream.Read(bt, 0, bt.Length);
+                // var base64Str = Convert.ToBase64String(bt);
+
                 var uploadParams = new ImageUploadParams
                 {
-                    File = new FileDescription(file.FileName),
+                    File = new FileDescription(file.FileName, stream),
                     Transformation = new Transformation().Height(500).Width(500).Crop("fill").Gravity("face"),
                     Folder = "da-net7"
                 };
