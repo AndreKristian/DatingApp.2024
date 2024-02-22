@@ -48,7 +48,7 @@ namespace API.Data
                 Id = u.Id,
             });
 
-            return await PagedList<LikeDto>.CreateAsync(LikedUsers, likesParams.pageNumber, likesParams.PageSize);
+            return await PagedList<LikeDto>.CreateAsync(LikedUsers, likesParams.PageNumber, likesParams.PageSize);
         }
 
 
