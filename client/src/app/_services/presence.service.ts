@@ -18,8 +18,6 @@ export class PresenceService {
     this.hubConnection = new HubConnectionBuilder()
       .withUrl(this.hubUrl + 'presence', {
         accessTokenFactory: () => user.token,
-        // skipNegotiation: true,
-        // transport: signalR.HttpTransportType.WebSockets,
       })
       .withAutomaticReconnect()
       .build();
@@ -27,6 +25,7 @@ export class PresenceService {
     this.hubConnection.start().catch(error => console.log(error));
 
     this.hubConnection.on('UserIsOnline', username => {
+      console.log(username)
       this.toastr.warning(username + ' has connected');
     })
 

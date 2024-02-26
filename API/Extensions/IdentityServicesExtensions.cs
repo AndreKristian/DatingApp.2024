@@ -35,7 +35,7 @@ namespace API.Extensions
                 {
                     OnMessageReceived = context =>
                     {
-                        var accessToken = context.Request.Query["acces_token"];
+                        var accessToken = context.Request.Query["access_token"];
 
                         var path = context.HttpContext.Request.Path;
 
